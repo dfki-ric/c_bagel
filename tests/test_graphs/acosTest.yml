@@ -1,0 +1,17 @@
+edges:
+  - {fromNodeId: 1, fromNodeOutputIdx: 0, toNodeId: 2, toNodeInputIdx: 0, weight: 1}
+  - {fromNodeId: 2, fromNodeOutputIdx: 0, toNodeId: 3, toNodeInputIdx: 0, weight: 1}
+
+nodes:
+  - id: 3
+    inputs:
+      - {idx: 0, bias: 0, default: 0.0, type: 'SUM'}
+    type: 'OUTPUT'
+  - id: 2
+    inputs:
+      - {idx: 0, bias: 0, default: 0.0, type: 'SUM'}
+    type: 'ACOS'
+  - id: 1
+    inputs:
+      - {idx: 0, bias: 0, default: 0.0, type: 'SUM'}
+    type: 'INPUT'

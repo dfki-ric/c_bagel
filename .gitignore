@@ -1,0 +1,5 @@
+build/
+**/doc/build
+*~
+**/*/.idea
+.idea

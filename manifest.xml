@@ -1,0 +1,10 @@
+<package>
+    <description brief="c_bagel">
+      C implementation to load, save, modify, and execute Bagel graphs.
+  </description>
+  <!--<depend package="mpfi" />-->
+  <depend package="simulation/lib_manager" />
+  <rosdep name="python-yaml" />
+  <rosdep name="yaml" />
+  <tags>needs_opt</tags>
+</package>

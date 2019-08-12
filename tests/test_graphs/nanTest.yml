@@ -1,0 +1,23 @@
+edges:
+  - {fromNodeId: 1, fromNodeOutputIdx: 0, toNodeId: 2, toNodeInputIdx: 0, weight: 1}
+  - {fromNodeId: 1, fromNodeOutputIdx: 0, toNodeId: 3, toNodeInputIdx: 0, weight: 1}
+  - {fromNodeId: 2, fromNodeOutputIdx: 0, toNodeId: 4, toNodeInputIdx: 0, weight: 1}
+  - {fromNodeId: 3, fromNodeOutputIdx: 0, toNodeId: 4, toNodeInputIdx: 0, weight: 1}
+
+nodes:
+  - id: 4
+    inputs:
+      - {idx: 0, bias: 0, default: 0.0, type: 'PRODUCT'}
+    type: 'OUTPUT'
+  - id: 3
+    inputs:
+      - {idx: 0, bias: 0.5, default: 0.0, type: 'SUM'}
+    type: 'DIVIDE'
+  - id: 2
+    inputs:
+      - {idx: 0, bias: -1.5, default: 0.0, type: 'SUM'}
+    type: 'DIVIDE'
+  - id: 1
+    inputs:
+      - {idx: 0, bias: 0, default: 0.0, type: 'SUM'}
+    type: 'INPUT'

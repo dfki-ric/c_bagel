@@ -1,0 +1,28 @@
+edges:
+- {fromNodeId: 8, fromNodeOutputIdx: 0, toNodeId: 14, toNodeInputIdx: 0, weight: 1}
+- {fromNodeId: 2, fromNodeOutputIdx: 0, toNodeId: 8, toNodeInputIdx: 0, weight: 1}
+- {fromNodeId: 2, fromNodeOutputIdx: 0, toNodeId: 8, toNodeInputIdx: 0, weight: 1}
+- {fromNodeId: 10, fromNodeOutputIdx: 0, toNodeId: 14, toNodeInputIdx: 0, weight: 1}
+- {fromNodeId: 4, fromNodeOutputIdx: 0, toNodeId: 10, toNodeInputIdx: 0, weight: 1}
+- {fromNodeId: 4, fromNodeOutputIdx: 0, toNodeId: 10, toNodeInputIdx: 0, weight: 1}
+nodes:
+- id: 14
+  inputs:
+  - {idx: 0, bias: 0, default: 0.0, type: 'SUM'}
+  type: 'OUTPUT'
+- id: 8
+  inputs:
+  - {idx: 0, bias: 1, default: 0.0, type: 'PRODUCT'}
+  type: 'PIPE'
+- id: 2
+  inputs:
+  - {idx: 0, bias: 0, default: 0.0, type: 'SUM'}
+  type: 'INPUT'
+- id: 10
+  inputs:
+  - {idx: 0, bias: 1, default: 0.0, type: 'PRODUCT'}
+  type: 'PIPE'
+- id: 4
+  inputs:
+  - {idx: 0, bias: 0, default: 0.0, type: 'SUM'}
+  type: 'INPUT'
