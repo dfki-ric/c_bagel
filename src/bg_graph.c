@@ -100,7 +100,26 @@ bg_error bg_graph_evaluate(bg_graph_t *graph) {
     determine_evaluation_order(graph);
     graph->eval_order_is_dirty = false;
   }
+  /* first process input nodes, then hidden nodes, and last output nodes */
+  for(current_node = bg_node_list_first(graph->input_nodes, &it);
+      current_node; current_node = bg_node_list_next(&it)) {
+    /*printf("eval \"%s\"\n", current_node->name);*/
+    err = bg_node_evaluate(current_node);
+    if(err != bg_SUCCESS) {
+      break;
+    }
+  }
+
   for(current_node = bg_node_list_first(node_list, &it);
+      current_node; current_node = bg_node_list_next(&it)) {
+    /*printf("eval \"%s\"\n", current_node->name);*/
+    err = bg_node_evaluate(current_node);
+    if(err != bg_SUCCESS) {
+      break;
+    }
+  }
+
+  for(current_node = bg_node_list_first(graph->output_nodes, &it);
       current_node; current_node = bg_node_list_next(&it)) {
     /*printf("eval \"%s\"\n", current_node->name);*/
     err = bg_node_evaluate(current_node);
@@ -1069,7 +1088,9 @@ void determine_evaluation_order(bg_graph_t *graph) {
         current_node; current_node = bg_node_list_next(&node_it)) {
       if(current_node->id == ids[i]) {
         bg_node_list_erase(&node_it);
-        bg_node_list_append(node_list, current_node);
+        if(current_node->type->id != bg_NODE_TYPE_INPUT && current_node->type->id != bg_NODE_TYPE_OUTPUT) {
+          bg_node_list_append(node_list, current_node);
+        }
         break;
       }
     }
