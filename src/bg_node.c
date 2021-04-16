@@ -74,7 +74,7 @@ bg_error bg_node_create_input_ports(bg_node_t *node, size_t cnt) {
 
 bg_error bg_node_create_output_ports(bg_node_t *node, size_t cnt) {
   size_t i;
-  char name[20];
+  char name[25];
   char *copy_name;
   bg_error err = bg_SUCCESS;
   node->output_port_cnt = cnt;

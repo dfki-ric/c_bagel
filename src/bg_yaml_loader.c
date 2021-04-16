@@ -139,7 +139,8 @@ static bg_error get_string(yaml_parser_t *parser, char s[bg_MAX_STRING_LENGTH]) 
     /*fprintf(stderr, "ERROR: get_string\n");*/
     return bg_error_set(err);
   }
-  strncpy(s, (const char*)event.data.scalar.value, bg_MAX_STRING_LENGTH);
+  /*strncpy(s, (const char*)event.data.scalar.value, bg_MAX_STRING_LENGTH);*/
+  memcpy(s, (const char*)event.data.scalar.value, bg_MAX_STRING_LENGTH*sizeof(char));
   yaml_event_delete(&event);
   return bg_error_set(bg_SUCCESS);
 }

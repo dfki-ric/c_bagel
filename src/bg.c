@@ -157,7 +157,7 @@ bg_error load_extern_nodes(const char* filename) {
   found_ending = false;
   l = strlen(filename);
   loadfile = (char*)malloc(l+7);
-  strncpy(loadfile, filename, l);
+  memcpy(loadfile, filename, l*sizeof(char));
   loadfile[l] = '\0';
 
   for(i=0; i<l; ++i) {
@@ -174,14 +174,14 @@ bg_error load_extern_nodes(const char* filename) {
   if(!found_ending) {
     /* no file ending found */
 #ifdef __APPLE__
-    strncpy(loadfile+l, ".dylib", 6);
+    strncpy(loadfile+l, ".dylib", 7);
     loadfile[l+6] = '\0';
 #else
 #ifdef WIN32
-    strncpy(loadfile+l, ".dll", 4);
+    strncpy(loadfile+l, ".dll", 5);
     loadfile[l+4] = '\0';
 #else
-    strncpy(loadfile+l, ".so", 3);
+    strncpy(loadfile+l, ".so", 4);
     loadfile[l+3] = '\0';
 #endif
 #endif
