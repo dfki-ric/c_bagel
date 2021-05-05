@@ -117,11 +117,11 @@ void bg_merge_type_register(merge_type_t *types);
 bg_error bg_error_set(bg_error err);
 
 
-node_type_t *node_types[bg_NUM_OF_NODE_TYPES];
-merge_type_t *merge_types[bg_NUM_OF_MERGE_TYPES];
+extern node_type_t *node_types[bg_NUM_OF_NODE_TYPES];
+extern merge_type_t *merge_types[bg_NUM_OF_MERGE_TYPES];
 
-node_type_t **extern_node_types;
-int num_extern_node_types;
+extern node_type_t **extern_node_types;
+extern int num_extern_node_types;
 
 static const bg_real bg_EPSILON = 1e-6;
 

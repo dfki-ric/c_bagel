@@ -14,6 +14,12 @@
 # include <stdint.h>
 #endif
 
+node_type_t *node_types[bg_NUM_OF_NODE_TYPES];
+merge_type_t *merge_types[bg_NUM_OF_MERGE_TYPES];
+
+node_type_t **extern_node_types;
+int num_extern_node_types;
+
 typedef void (*init_nodes_t) (void);
 
 static const char* bg_error_messages[21] = { "SUCCESS",
