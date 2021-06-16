@@ -97,7 +97,7 @@ if(UNIT_TESTS)
     )
 endif(UNIT_TESTS)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Werror -Wall -Wextra -Wshadow -std=c89 -pedantic")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Werror -Wall -Wextra -Wshadow -std=c99 -pedantic")
 
 add_library(${PROJECT_NAME} SHARED ${SOURCES})
 
