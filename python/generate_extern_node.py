@@ -12,7 +12,7 @@ if not os.path.isfile(sys.argv[1]):
     print("argument is not a correct file path")
     exit(0)
 
-cfg = yaml.load(open(sys.argv[1]))
+cfg = yaml.safe_load(open(sys.argv[1]))
 
 if not os.path.exists("src/auto"):
     os.mkdir("src/auto")
