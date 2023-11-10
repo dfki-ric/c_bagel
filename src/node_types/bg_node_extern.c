@@ -35,7 +35,7 @@ static node_type_t extern_types[] = {
   {0, NULL, 0, 0, NULL, NULL, NULL, NULL}
 };
 
-void bg_register_extern_types() {
+void bg_register_extern_types(void) {
   bg_node_type_register(extern_types);
 }
 

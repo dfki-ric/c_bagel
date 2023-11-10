@@ -503,6 +503,6 @@ static merge_type_t basic_merges[] = {
 };
 
 
-void bg_register_basic_merges() {
+void bg_register_basic_merges(void) {
   bg_merge_type_register(basic_merges);
 }

@@ -192,7 +192,7 @@ bg_error bg_graph_to_yaml_file(const char *filename, const bg_graph_t *g) {
   yaml_emitter_t emitter;
   int ok = 1;
   FILE *fp;
-  bg_error err;
+  /*bg_error err;*/
 
   fp = fopen(filename, "w");
   if(!fp) {
@@ -201,16 +201,16 @@ bg_error bg_graph_to_yaml_file(const char *filename, const bg_graph_t *g) {
   ok &= yaml_emitter_initialize(&emitter);
   yaml_emitter_set_output_file(&emitter, fp);
 
-  err = bg_graph_to_emitter(&emitter, g);
+  ok &= bg_graph_to_emitter(&emitter, g);
   fclose(fp);
-  return err;
+  return ok;
 }
 
 bg_error bg_graph_to_yaml_string(unsigned char *buffer, size_t buffer_size,
                                  const bg_graph_t *g, size_t *bytes_written) {
   yaml_emitter_t emitter;
-  int ok = 1;
-  ok &= yaml_emitter_initialize(&emitter);
+  /*int ok = 1;*/
+  yaml_emitter_initialize(&emitter);
   yaml_emitter_set_output_string(&emitter, buffer, buffer_size, bytes_written);
   return bg_graph_to_emitter(&emitter, g);
 }

@@ -30,7 +30,7 @@ unsigned long succ_buffer_size, next_succ_index;
 
 unsigned long *ids = NULL;
 
-void init() {
+void init(void) {
   nodes_buffer_size = BUFFER_STEPS;
   node_list = (struct item*)malloc(sizeof(struct item)*nodes_buffer_size);
   next_node_index = 0;
@@ -39,7 +39,7 @@ void init() {
   next_succ_index = 0;
 }
 
-void deinit() {
+void deinit(void) {
   free(node_list);
   node_list = NULL;
   free(succ_list);
@@ -156,7 +156,7 @@ void detect_loops_for_node(struct item *item) {
   item->checked = 0;
 }
 
-void detect_loops() {
+void detect_loops(void) {
   unsigned long i;
 
   for(i=0; i<next_node_index; ++i) {
@@ -166,7 +166,7 @@ void detect_loops() {
   }
 }
 
-void debug_graph() {
+void debug_graph(void) {
   unsigned long i, sid;
 
   for(i=0; i<next_node_index; ++i) {

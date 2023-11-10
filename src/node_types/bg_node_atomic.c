@@ -442,6 +442,6 @@ static node_type_t atomic_types[] = {
 };
 
 void bg_register_atomic_types(void);
-void bg_register_atomic_types() {
+void bg_register_atomic_types(void) {
   bg_node_type_register(atomic_types);
 }

@@ -58,7 +58,7 @@ static node_type_t subgraph_types[] = {
   {0, NULL, 0, 0, NULL, NULL, NULL, NULL}
 };
 
-void bg_register_subgraph_types() {
+void bg_register_subgraph_types(void) {
   bg_node_type_register(subgraph_types);
 }
 

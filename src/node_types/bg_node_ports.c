@@ -51,6 +51,6 @@ static node_type_t port_types[] = {
   {0, NULL, 0, 0, NULL, NULL, NULL, NULL}
 };
 
-void bg_register_port_types() {
+void bg_register_port_types(void) {
   bg_node_type_register(port_types);
 }

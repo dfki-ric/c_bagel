@@ -59,7 +59,8 @@
 #endif
 
 #include <stddef.h>
-#include <stdbool.h>
+#include "bool.h"
+/*#include <stdbool.h>*/
 
 
 #ifdef __cplusplus
@@ -142,21 +143,21 @@ typedef enum { bg_MERGE_TYPE_SUM,
  * function has no influence and also retruns with \link bg_SUCCESS
  * \endlink.
  */
-bg_error bg_initialize();
+bg_error bg_initialize(void);
 
 /**
  * \brief Deinitializes the c_bagel library. This have to be done once
  * when an application is closed to cleanup the c_bagel.
  * \warning Currently the memory is not cleared by this call!
  */
-void bg_terminate();
+void bg_terminate(void);
 
 /**
  * \brief Returns if the c_bagel library is already initialized.
  *
  * \return True if the library is initialized, False otherwise.
  */
-bool bg_is_initialized();
+bool bg_is_initialized(void);
 
 /**
  * \brief Load an external node type.
@@ -183,20 +184,20 @@ bg_error getExternNodes(const char* path);
  * \return True if the internal error state is set
  * \return False if everthing is fine
  */
-bool bg_error_occurred();
+bool bg_error_occurred(void);
 
 /**
  * \brief Clear the internal error state.
  *
  */
-void bg_error_clear();
+void bg_error_clear(void);
 
 /**
  * \brief Read the internal error state.
  *
  * \return The last occurred error state.
  */
-bg_error bg_error_get();
+bg_error bg_error_get(void);
 
 /**
  * \brief Reads the corresponding error message of a given error state.

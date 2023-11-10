@@ -11,8 +11,8 @@
 
 
 #include <stdlib.h>
-#include <stdbool.h>
-
+/*#include <stdbool.h>*/
+#include "bool.h"
 
 typedef struct bg_list_t bg_list_t;
 typedef struct bg_list_item bg_list_item;

@@ -44,22 +44,22 @@ static const char* bg_error_messages[21] = { "SUCCESS",
                                   "ERR_EXTERN_SYMBOL_NOT_FOUND",
                                   "ERR_EXTERN_NODE_NOT_FOUND"};
 
-extern void bg_register_atomic_types();
-extern void bg_register_subgraph_types();
-extern void bg_register_extern_types();
-extern void bg_register_port_types();
-extern void bg_register_basic_merges();
+extern void bg_register_atomic_types(void);
+extern void bg_register_subgraph_types(void);
+extern void bg_register_extern_types(void);
+extern void bg_register_port_types(void);
+extern void bg_register_basic_merges(void);
 
 
 static int is_initialized = false;
 static bg_error bg_err = bg_ERR_NOT_INITIALIZED;
 
 
-bool bg_is_initialized() {
+bool bg_is_initialized(void) {
   return is_initialized;
 }
 
-bg_error bg_initialize() {
+bg_error bg_initialize(void) {
   if(!is_initialized) {
     is_initialized = true;
     bg_error_clear();
@@ -75,15 +75,15 @@ bg_error bg_initialize() {
 }
 
 
-void bg_terminate() {
+void bg_terminate(void) {
   is_initialized = false;
 }
 
-bool bg_error_occurred() {
+bool bg_error_occurred(void) {
   return bg_err != bg_SUCCESS;
 }
 
-void bg_error_clear() {
+void bg_error_clear(void) {
   bg_err = bg_SUCCESS;
 }
 
@@ -94,7 +94,7 @@ bg_error bg_error_set(bg_error err) {
   return err;
 }
 
-bg_error bg_error_get() {
+bg_error bg_error_get(void) {
   return bg_err;
 }
 
@@ -231,7 +231,7 @@ bg_error load_extern_nodes(const char* filename) {
 bg_error getExternNodes(const char* path)
 {
     /*fprintf(stderr, "%s\n", path.c_str());*/
-    DIR *dir;
+  DIR *dir;
     struct dirent *ent;
     if ((dir = opendir (path)) != NULL) {
         /* go through all entities */
@@ -248,7 +248,7 @@ bg_error getExternNodes(const char* path)
 #endif
                 /* try to load the library */
                 char newPath[258];
-		/* todo: add check wether copy was fine*/
+                /* todo: add check wether copy was fine*/
                 sprintf(newPath, "%s%s", path, file);
                 load_extern_nodes(newPath);
             } else if (strstr(&(file[0]), ".")) {
@@ -256,7 +256,7 @@ bg_error getExternNodes(const char* path)
             } else {
                 /* go into the next dir */
                 char newPath[258];
-		/* todo: add check wether copy was fine*/
+                /* todo: add check wether copy was fine*/
                 sprintf(newPath, "%s%s/", path, file);
                 getExternNodes(newPath);
             }
