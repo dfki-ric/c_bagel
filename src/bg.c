@@ -51,7 +51,7 @@ extern void bg_register_port_types(void);
 extern void bg_register_basic_merges(void);
 
 
-static int is_initialized = false;
+static int is_initialized = 0;
 static bg_error bg_err = bg_ERR_NOT_INITIALIZED;
 
 
