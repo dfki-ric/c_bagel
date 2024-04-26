@@ -193,7 +193,8 @@ int tsort (void) {
   if(ids) {
     free(ids);
   }
-  ids = (unsigned long*)malloc(sizeof(unsigned long)*next_node_index);
+  ids = (unsigned long*)malloc(sizeof(unsigned long)*(next_node_index+1));
+  ids[next_node_index] = 0;
 
   /* allocate memory for fast sort */
   buffer1 = (unsigned long*)malloc(sizeof(unsigned long)*next_node_index);
