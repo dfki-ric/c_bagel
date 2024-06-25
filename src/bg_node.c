@@ -41,7 +41,7 @@ bg_error bg_node_reset(bg_node_t *node, bool recursive) {
 
 bg_error bg_node_create_input_ports(bg_node_t *node, size_t cnt) {
   size_t i;
-  char name[20];
+  char name[25];
   char *copy_name;
   bg_error err = bg_SUCCESS;
   node->input_port_cnt = cnt;

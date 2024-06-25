@@ -103,9 +103,9 @@ void bg_error_message_get( bg_error err, char error_message[bg_MAX_STRING_LENGTH
 
   if (bg_error_messages_length != bg_NUM_OF_ERRORS || bg_error_messages_length <= err) {
     const char* message = "No string message corresponding to the error. Check message array!";
-    strncpy(error_message, message, bg_MAX_STRING_LENGTH);
+    strncpy(error_message, message, bg_MAX_STRING_LENGTH-1);
   } else {
-    strncpy(error_message, (const char*)bg_error_messages[err], bg_MAX_STRING_LENGTH);
+    strncpy(error_message, (const char*)bg_error_messages[err], bg_MAX_STRING_LENGTH-1);
   }
 }
 
